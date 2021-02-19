@@ -31,7 +31,7 @@ class Controller_students{
     //Просмотр студентов по группе
     async get_student_by_group(req, res){
         const studentGroup = req.params.group;
-        const result = await db.query(`SELECT * FROM student
+        const result = await db.query(`SELECT student.id, student.surname, student.name, student.second_name, study_group.name  FROM student
         INNER JOIN study_group
         ON student.study_group_id = study_group.id AND study_group.name = $1`, [studentGroup]);
         res.json(result.rows);
