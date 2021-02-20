@@ -19,7 +19,7 @@ router.put('/groups/add/:name', controller_groups.create_group);
 router.delete('/groups/remove/:name', controller_groups.remove_group)
 
 router.get('/journal/all', controller_journal.get_journal);
-router.get('/journal/id/:id', controller_journal.get_journal_by_id);
-router.get('/journal/group/:group', controller_journal.get_journal_by_group);
+router.post('/journal/student', controller_journal.get_journal_by_id);
+router.post('/journal/group', controller_journal.get_journal_by_group);
 router.post('/journal/edit/markid/:markid/journalid/:mainid', controller_journal.edit_mark);
 module.exports = router;

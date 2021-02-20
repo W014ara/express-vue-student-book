@@ -1,0 +1,29 @@
+/*
+    All paths are configured relative to this index.scss file
+*/
+@import "__system.scss";
+
+
+body{
+    background:$main_color;
+    color:$main_font_color;
+    font-size: $main_font_size;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+#app{
+    min-height: 100%;
+    display:flex;
+    flex-direction:column;
+}
+
+*{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+}
