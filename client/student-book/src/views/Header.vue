@@ -2,15 +2,15 @@
     <header class="root-header">
         <nav class="header-nav">
             <div class="header-nav-wrapper">
-                <div class="inner">
+                <router-link class="inner" to="/">
                     Данные по студентам
-                </div>
-                <div class="inner">
+                </router-link>
+                <router-link class="inner" to="/students">
                     Студенты
-                </div>
-                <div class="inner">
+                </router-link>
+                <router-link class="inner" to="/fails">
                     Пересдачи
-                </div>
+                </router-link> 
             </div>
         </nav>
     </header>
@@ -64,6 +64,7 @@ export default {
                     font-size: .85rem;
                     padding-top: .5rem;
                     box-sizing: border-box;
+                    text-decoration: none;
                     transition:.2s;
                     &:hover{
                         cursor: pointer;

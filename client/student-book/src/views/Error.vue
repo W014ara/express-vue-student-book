@@ -38,6 +38,11 @@ export default {
                 margin-top: 2rem;
                 font-size: 1.5rem;
                 font-weight: 300;
+                text-decoration: none;
+                transition: .2s;
+            }
+            a:hover{
+                color:red;
             }
         }
     }
