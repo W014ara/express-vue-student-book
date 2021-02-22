@@ -22,4 +22,7 @@ router.get('/journal/all', controller_journal.get_journal);
 router.post('/journal/student', controller_journal.get_journal_by_id);
 router.post('/journal/group', controller_journal.get_journal_by_group);
 router.post('/journal/edit/markid/:markid/journalid/:mainid', controller_journal.edit_mark);
+router.get('/journal/type', controller_journal.get_exam_type);
+router.get('/journal/fails', controller_journal.get_fails);
+
 module.exports = router;
