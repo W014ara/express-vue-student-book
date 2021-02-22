@@ -41,8 +41,10 @@ export default {
     instance
       .get("journal/type")
       .then(result => {
-        this.data_loaded = true;
-        this.exams_type_lst = result.data;
+        if (result.data.length > 0) {
+          this.data_loaded = true;
+          this.exams_type_lst = result.data;
+        }
       })
       .catch(error => {
         console.log(error);

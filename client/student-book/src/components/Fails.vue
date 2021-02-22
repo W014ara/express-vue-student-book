@@ -40,8 +40,10 @@ export default {
     instance
       .get("journal/fails")
       .then(result => {
-        this.data_loaded = true;
-        this.fails_lst = this.setFail_lst(result.data);
+        if (result.data.length > 0) {
+          this.data_loaded = true;
+          this.fails_lst = this.setFail_lst(result.data);
+        }
       })
       .catch(error => {
         console.log(error);

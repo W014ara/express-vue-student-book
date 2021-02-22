@@ -14,7 +14,8 @@
             v-bind:class="{
               badly:
                 item[property] === 'Неудовлетворительно' ||
-                item[property] === 'Незачет'
+                item[property] === 'Незачет' ||
+                item[property] === 'Неявка'
             }"
           >
             {{ item[property] }}
@@ -48,13 +49,15 @@ export default {
     instance
       .get("journal/all")
       .then(result => {
-        this.data_loaded = true;
-        let tmp = [...result.data];
-        this.filter_lst = this.createFinalData(
-          result.data,
-          this.getSubjects(tmp)
-        );
-        this.table_head = Object.keys(this.filter_lst[0]);
+        if (result.data.length > 0) {
+          this.data_loaded = true;
+          let tmp = [...result.data];
+          this.filter_lst = this.createFinalData(
+            result.data,
+            this.getSubjects(tmp)
+          );
+          this.table_head = Object.keys(this.filter_lst[0]);
+        }
       })
       .catch(error => {
         console.log(error);
