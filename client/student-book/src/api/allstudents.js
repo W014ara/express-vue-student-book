@@ -20,23 +20,23 @@ function createPairs_arr(arr) {
 }
 
 //Обновление записей в подмассивах в соответствии с записями по предметам
-function filterPairds(arr, subjects) {
+function filterPairds(arr) {
   let result = [];
   for (let key in arr) {
     if (arr[`${key}`].length === 1) {
       result.push(...arr[`${key}`]);
     } else {
-        result.push(middlefilter(arr[`${key}`]));
+      result.push(middlefilter(arr[`${key}`]));
     }
   }
   return result;
 }
 
 // initArray = начальный массив данных
-function middlefilter (initArray) {
+function middlefilter(initArray) {
   let newArrData = initArray[0];
   for (let index = 0; index < initArray.length; index++) {
-    Object.keys(newArrData).forEach((el, i, arr) => {
+    Object.keys(newArrData).forEach((el, i) => {
       if (
         Object.values(newArrData)[i] !== Object.values(initArray[index])[i] &&
         Object.values(newArrData)[i] === "-"
@@ -49,5 +49,5 @@ function middlefilter (initArray) {
     });
   }
   return newArrData;
-};
+}
 export default { createPairs_arr, filterPairds };

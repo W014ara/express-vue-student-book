@@ -92,7 +92,10 @@ export default {
         }
         result.push(new_elem);
       }
-      result= Functions.filterPairds(Functions.createPairs_arr(result),subjects);
+      result = Functions.filterPairds(
+        Functions.createPairs_arr(result),
+        subjects
+      );
       return result;
     }
   }
