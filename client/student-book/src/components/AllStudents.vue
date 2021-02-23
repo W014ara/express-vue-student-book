@@ -31,6 +31,7 @@
 <script>
 import instance from "../api/instance.js";
 import Loader from "../views/Loader";
+import Functions from "../api/allstudents";
 
 export default {
   name: "AllStudents",
@@ -91,6 +92,7 @@ export default {
         }
         result.push(new_elem);
       }
+      result= Functions.filterPairds(Functions.createPairs_arr(result),subjects);
       return result;
     }
   }
