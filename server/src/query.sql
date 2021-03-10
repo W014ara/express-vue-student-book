@@ -22,25 +22,25 @@ CREATE TABLE study_group (
                     name TEXT NOT NULL,
                     second_name TEXT NOT NULL,
                     study_group_id INT NOT NULL,
-                    foreign key (study_group_id) references study_group(id)
+                    foreign key (study_group_id) references study_group(id) ON DELETE CASCADE ON UPDATE CASCADE
             );
             CREATE TABLE study_plan (
                     id SERIAL PRIMARY KEY,
                     subject_id INT,
                     exam_type_id INT,
-                    foreign key (subject_id) references subject(id),
-                    foreign key (exam_type_id) references exam_type(id)
+                    foreign key (subject_id) references subject(id) ON DELETE CASCADE ON UPDATE CASCADE,
+                    foreign key (exam_type_id) references exam_type(id) ON DELETE CASCADE ON UPDATE CASCADE
             );
             CREATE TABLE journal (
-                    id INT NOT NULL,
+                    id SERIAL PRIMARY KEY,
                     student_id INT,
                     study_plan_id INT,
                     in_time INT,
                     count INT,
                     mark_id INT,
-                    foreign key (student_id) references student(id),
-                    foreign key (study_plan_id) references study_plan(id),
-                    foreign key (mark_id) references mark(id)
+                    foreign key (student_id) references student(id) ON DELETE CASCADE ON UPDATE CASCADE,
+                    foreign key (study_plan_id) references study_plan(id) ON DELETE CASCADE ON UPDATE CASCADE,
+                    foreign key (mark_id) references mark(id) ON DELETE CASCADE ON UPDATE CASCADE
             );
 
 INSERT INTO study_group (name) values ( 'ИКБО-06-17' );

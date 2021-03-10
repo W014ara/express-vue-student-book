@@ -27,7 +27,6 @@ SELECT t1.id, t1.short_name, t1.in_time, t1.count, t1.count, t1.mark_name, t1.su
 student.id = journal.student_id) as t1 WHERE t1.group_name='ИКБО-11-17'
 
 
-
 --Предметы, у который тип экзамена - что-то
 SELECT t1.id, t1.short_name, exam_type.type FROM exam_type INNER JOIN (SELECT subject.id, subject.short_name, study_plan.exam_type_id
 FROM subject INNER JOIN study_plan ON study_plan.subject_id = subject.id) as t1 ON exam_type.id = t1.exam_type_id AND exam_type.type="Экзамен"
