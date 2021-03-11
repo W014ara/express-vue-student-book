@@ -14,7 +14,6 @@ import Header from "./views/Header";
 import Main from "./components/Main";
 import Footer from "./views/Footer";
 import Error from "./views/Error";
-
 export default {
   components: {
     Header,
@@ -24,5 +23,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss"></style>

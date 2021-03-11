@@ -1,28 +1,29 @@
 <template>
   <section class="inner">
-    <div class="inner">
-      <table class="table_dark" v-if="data_loaded === true">
-        <tr>
-          <th v-for="elem in table_head" :key="elem">
-            {{ elem }}
-          </th>
-        </tr>
-        <tr v-for="(item, index) in filter_lst" :key="index">
-          <td
-            v-for="(property, new_index) in Object.keys(filter_lst[0])"
-            :key="new_index"
-            v-bind:class="{
-              badly:
-                item[property] === 'Неудовлетворительно' ||
-                item[property] === 'Незачет' ||
-                item[property] === 'Неявка'
-            }"
-          >
-            {{ item[property] }}
-          </td>
-        </tr>
-      </table>
-
+    <div class="inner-content">
+      <v-data-table
+        :headers="headers"
+        :items="filter_lst"
+        class="table_dark"
+        v-if="data_loaded === true"
+      >
+        <template v-slot:item="props">
+          <tr>
+            <td
+              v-for="(elem, property) in props.item"
+              :key="property"
+              v-bind:class="{
+                badly:
+                  props.item[property] === 'Неудовлетворительно' ||
+                  props.item[property] === 'Незачет' ||
+                  props.item[property] === 'Неявка'
+              }"
+            >
+              {{ props.item[property] }}
+            </td>
+          </tr>
+        </template>
+      </v-data-table>
       <Loader v-else />
     </div>
   </section>
@@ -41,8 +42,7 @@ export default {
   data: function() {
     return {
       data_loaded: false,
-      subjects: [],
-      table_head: [],
+      headers: [],
       filter_lst: []
     };
   },
@@ -57,7 +57,13 @@ export default {
             result.data,
             this.getSubjects(tmp)
           );
-          this.table_head = Object.keys(this.filter_lst[0]);
+          this.headers = Object.keys(this.filter_lst[0]);
+          this.headers = this.headers.map(elem => {
+            return {
+              text: elem,
+              value: elem
+            };
+          });
         }
       })
       .catch(error => {
@@ -101,3 +107,11 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.inner {
+  .inner-content {
+    word-break: break-all;
+  }
+}
+</style>

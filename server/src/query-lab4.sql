@@ -47,3 +47,9 @@ SELECT t1.id, t1.surname, t1.name, t1.second_name, t1.group, COUNT(t1.mark_id) F
 FROM student INNER JOIN journal ON journal.student_id = student.id INNER JOIN study_group ON study_group.id = student.study_group_id
 WHERE journal.mark_id=4 OR journal.mark_id=7 OR journal.mark_id=6) as t1
 GROUP BY t1.id, t1.surname, t1.name, t1.second_name, t1.group
+
+--Вывод студентов по группам
+SELECT student.id, CONCAT(surname,' ',student.name,' ',second_name) as fullname, study_group.name, study_group.id FROM student INNER JOIN study_group ON study_group.id = student.study_group_id
+
+--Обновление группы у студентов
+UPDATE student SET study_group_id=3 WHERE student.id=5

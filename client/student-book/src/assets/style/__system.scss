@@ -16,6 +16,10 @@ $main_color: #24022D;
 $main_font_size: 16px;
 $main_font_color:white;
 
+html{
+    font-size: 25px;
+}
+
 //Extra small devices
 @media (min-width: 0px) and (max-width:319px){
     html{

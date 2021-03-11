@@ -43,7 +43,7 @@ function middlefilter(initArray) {
       ) {
         newArrData = {
           ...newArrData,
-          [Object.keys(newArrData)[i]]: Object.values(initArray[index])[i],
+          [Object.keys(newArrData)[i]]: Object.values(initArray[index])[i]
         };
       }
     });

@@ -5,6 +5,7 @@ import Error from "../views/Error.vue";
 import AllStudents from "../components/AllStudents.vue";
 import ExamType from "../components/ExamType.vue";
 import Fails from "../components/Fails.vue";
+import EditGroups from "../components/EditGroups.vue";
 
 Vue.use(VueRouter);
 
@@ -12,7 +13,6 @@ const routes = [
   {
     path: "/",
     component: Main,
-    name: "main",
     children: [
       {
         path: "",
@@ -25,6 +25,10 @@ const routes = [
       {
         path: "/fails",
         component: Fails
+      },
+      {
+        path: "/editgroup",
+        component: EditGroups
       }
     ]
   },

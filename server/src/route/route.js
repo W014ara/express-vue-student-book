@@ -9,7 +9,9 @@ router.put('/students/surname/:surname/name/:name/secondname/:secondname/group_n
 router.get('/students/all', studentController.get_all_students);
 router.get('/students/:id', studentController.get_student_by_id);
 router.get('/students/group/:group', studentController.get_student_by_group);
+router.get('/students/', studentController.getstudent_and_group);
 router.post('/students/surname/:surname/name/:name/secondname/:secondname/group_name/:group_name/id/:student_id', studentController.change_student);
+router.put('/student/', studentController.change_student_group);
 router.delete('/students/del/:id', studentController.remove_student);
 
 router.get('/groups/all', controller_groups.get_groups);

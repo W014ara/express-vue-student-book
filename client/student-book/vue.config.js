@@ -1,14 +1,8 @@
 module.exports = {
   lintOnSave: true,
+  publicPath: "",
+  outputDir: "www",
+  assetsDir: "static",
 
-  css: {
-    loaderOptions: {
-      sass: {
-        prependData: '@import "@/assets/style/__index.scss";'
-      }
-    }
-  },
-
-  outputDir: 'www',
-  assetsDir: 'static'
+  transpileDependencies: ["vuetify"]
 };

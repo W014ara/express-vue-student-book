@@ -52,10 +52,24 @@ class Controller_students{
         res.json(result.rows);
     }
 
+    async change_student_group(req, res){
+        const userData = {
+            us_id: req.body.id,
+            gr_id: req.body.grId
+        }
+        const result = await db.query(`UPDATE student SET study_group_id=$1 WHERE student.id=$2`, [userData.us_id, userData.gr_id])
+        res.json(result.rows);
+    }
+
     //Удаление студента
     async remove_student(req, res){
         const studentID = req.params.id;
         const result = await db.query('DELETE FROM student WHERE id = $1 RETURNING *', [studentID]);
+        res.json(result.rows);
+    }
+
+    async getstudent_and_group(req, res){
+        const result = await db.query(`SELECT student.id as id, CONCAT(surname,' ',student.name,' ',second_name) as fullname, study_group.name FROM student INNER JOIN study_group ON study_group.id = student.study_group_id`);
         res.json(result.rows);
     }
 }

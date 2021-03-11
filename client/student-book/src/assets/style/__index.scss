@@ -44,6 +44,49 @@ $hover_color: #24022d5d;
         display:flex;
         flex-direction: column;
         justify-content: center;
+        .v-data-table.table_dark {
+            font-family: Roboto;
+            font-size: 1.2rem;
+            width: 100%;
+            text-align: left;
+            border-collapse: collapse;
+            border-radius: .3rem;
+            background: $main_text_color;
+        }
+        .v-data-table.table_dark th {
+            color: $border_color;
+            border-bottom: .05rem solid $border_color;
+            padding: .5rem .5rem;
+            transition:.2s;
+            &:hover{
+                background:$hover_color;
+                color:$main_text_color;
+            }
+        }
+        .v-data-table.table_dark td {
+            color: $border_color;
+            padding: .5rem .5rem;
+            transition:.2s;
+            text-decoration: none;
+            &:hover{
+                background:$hover_color;
+                color:$main_text_color;
+            }
+        }
+        .v-data-table.table_dark td.badly{
+            background:red;
+            color:$main_text_color;
+        }
+        .v-data-table.table_dark tr:last-child td {
+            border-bottom: none;
+        }
+        .v-data-table.table_dark td:last-child {
+            border-right: none;
+        }
+        &:hover{
+            cursor: pointer;
+        }
+
         .table_dark {
             font-family: Roboto;
             font-size: 1.2rem;
@@ -65,8 +108,6 @@ $hover_color: #24022d5d;
         }
         .table_dark td {
             color: $border_color;
-            border-bottom: .05rem solid $border_color;
-            border-right:  .05rem solid $border_color;
             padding: .5rem .5rem;
             transition:.2s;
             text-decoration: none;

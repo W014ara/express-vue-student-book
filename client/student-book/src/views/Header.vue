@@ -11,6 +11,9 @@
         <router-link class="inner" to="/fails">
           Пересдачи
         </router-link>
+        <router-link class="inner" to="/editgroup">
+          Редактирование студента
+        </router-link>
       </div>
     </nav>
   </header>
@@ -54,6 +57,10 @@ export default {
       }
       :nth-child(3) {
         width: 8.5rem;
+        height: 2rem;
+      }
+      :nth-child(4) {
+        width: 11rem;
         height: 2rem;
       }
       .inner {
